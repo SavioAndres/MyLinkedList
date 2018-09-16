@@ -88,7 +88,7 @@ public class MyLinkedList<T> implements IMyLinkedList<T> {
             this.adicionar(elemento);
         }
     }
-    
+
     @Override
     public T obter(int indice) {
         No<T> node = new No<>();
@@ -123,18 +123,17 @@ public class MyLinkedList<T> implements IMyLinkedList<T> {
 
     @Override
     public T remover(int indice) {
-        No<T> node;
+        No node;
         T elemento = obter(indice);
-        double aux = this.tamanho / 2;
 
         if (this.tamanho == 0 || indice < 0) {
             throw new NullPointerException("Índice inválido");
-        } else if (indice == this.tamanho - 1) {
-            removerNoFim();
         } else if (indice == 0) {
             removerNoInicio();
+        } else if (indice == this.tamanho - 1) {
+            removerNoFim();
         } else {
-            if (aux >= indice) {
+            if (this.tamanho / 2 >= indice) {
                 node = this.inicio;
                 for (int i = 0; i < indice; i++) {
                     node = node.getProximo();
@@ -165,14 +164,15 @@ public class MyLinkedList<T> implements IMyLinkedList<T> {
 
     private void removerNoInicio() {
         if (this.tamanho == 1) {
-            this.inicio = this.fim = null;
+            this.inicio = null;
+            this.fim = null;
         } else {
             this.inicio = this.inicio.getProximo();
             this.inicio.setAnterior(null);
         }
         this.tamanho--;
     }
-    
+
     private void removerNoFim() {
         No<T> node;
         node = this.fim.getAnterior();
@@ -203,16 +203,20 @@ public class MyLinkedList<T> implements IMyLinkedList<T> {
     public boolean ehVazio() {
         return this.inicio == null;
     }
-    
+
     @Override
     public String toString() {
-        StringBuilder str = new StringBuilder();
-        for (int i = 0; i < this.tamanho - 1; i++) {
-            str.append(obter(i)).append(", ");
+        if (this.tamanho != 0) {
+            StringBuilder str = new StringBuilder();
+            for (int i = 0; i < this.tamanho - 1; i++) {
+                str.append(obter(i)).append(", ");
+            }
+            return "[" + str.toString() + obter(tamanho - 1) + "]";
+        } else {
+            return "[]";
         }
-        return "[" + str.toString() + obter(tamanho - 1) + "]";
     }
-    
+
     @Override
     public Iterator<T> iterator() {
         return new IteradorListaEncadeada();
@@ -239,5 +243,5 @@ public class MyLinkedList<T> implements IMyLinkedList<T> {
         }
 
     }
-    
+
 }
