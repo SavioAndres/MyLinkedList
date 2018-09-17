@@ -1,13 +1,16 @@
 package mylinkedlist;
 
+import interfaces.Pilha;
+import interfaces.Fila;
 import java.util.Iterator;
+import interfaces.IMyLinkedList;
 
 /**
  *
  * @author Sávio Andres
  * @param <T>
  */
-public class MyLinkedList<T> implements IMyLinkedList<T> {
+public class MyLinkedList<T> implements IMyLinkedList<T>, Pilha<T>, Fila<T> {
 
     private No<T> inicio, fim;
     private int tamanho;
@@ -204,6 +207,43 @@ public class MyLinkedList<T> implements IMyLinkedList<T> {
         return this.inicio == null;
     }
 
+    //Pilha
+    @Override
+    public void empilhar(T elemento) {
+        adicionar(elemento);
+    }
+
+    @Override
+    public T desempilhar() {
+        return remover(this.tamanho - 1);
+    }
+
+    @Override
+    public T topo() {
+        return obter(this.tamanho - 1);
+    }
+
+    //Fila
+    @Override
+    public void enfileirar(T elemento) {
+        adicionar(elemento);
+    }
+
+    @Override
+    public T desenfileirar() {
+        return remover(0);
+    }
+
+    @Override
+    public T primeiro() {
+        return obter(0);
+    }
+
+    @Override
+    public T ultimo() {
+        return obter(this.tamanho - 1);
+    }
+
     @Override
     public String toString() {
         if (this.tamanho != 0) {
@@ -221,7 +261,7 @@ public class MyLinkedList<T> implements IMyLinkedList<T> {
     public Iterator<T> iterator() {
         return new IteradorListaEncadeada();
     }
-
+    
     private class IteradorListaEncadeada implements Iterator<T> {
 
         private No<T> proximo;

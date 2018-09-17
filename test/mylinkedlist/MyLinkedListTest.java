@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mylinkedlist;
 
-import java.util.Iterator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -15,7 +9,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author savio
+ * @author Sávio Andres
  */
 public class MyLinkedListTest {
     
@@ -187,6 +181,99 @@ public class MyLinkedListTest {
         instance.adicionar("q");
         Object result = instance.iterator().next();
         assertEquals("q", result);
+    }
+
+    /**
+     * Test of empilhar method, of class MyLinkedList.
+     */
+    @Test
+    public void testEmpilhar() {
+        System.out.println("empilhar");
+        Object elemento = null;
+        MyLinkedList instance = new MyLinkedList();
+        instance.empilhar(elemento);
+    }
+
+    /**
+     * Test of desempilhar method, of class MyLinkedList.
+     */
+    @Test
+    public void testDesempilhar() {
+        System.out.println("desempilhar");
+        MyLinkedList instance = new MyLinkedList();
+        instance.adicionar("a");
+        Object expResult = "a";
+        Object result = instance.desempilhar();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of topo method, of class MyLinkedList.
+     */
+    @Test
+    public void testTopo() {
+        System.out.println("topo");
+        MyLinkedList instance = new MyLinkedList();
+        instance.adicionar("a");
+        instance.adicionar("b");
+        instance.adicionar("c");
+        Object expResult = "c";
+        Object result = instance.topo();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of enfileirar method, of class MyLinkedList.
+     */
+    @Test
+    public void testEnfileirar() {
+        System.out.println("enfileirar");
+        Object elemento = null;
+        MyLinkedList instance = new MyLinkedList();
+        instance.enfileirar(elemento);
+    }
+
+    /**
+     * Test of desenfileirar method, of class MyLinkedList.
+     */
+    @Test
+    public void testDesenfileirar() {
+        System.out.println("desenfileirar");
+        MyLinkedList instance = new MyLinkedList();
+        instance.adicionar("a");
+        Object expResult = "a";
+        Object result = instance.desenfileirar();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of primeiro method, of class MyLinkedList.
+     */
+    @Test
+    public void testPrimeiro() {
+        System.out.println("primeiro");
+        MyLinkedList instance = new MyLinkedList();
+        instance.adicionar("a");
+        instance.adicionar("b");
+        instance.adicionar("c");
+        Object expResult = "a";
+        Object result = instance.primeiro();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of ultimo method, of class MyLinkedList.
+     */
+    @Test
+    public void testUltimo() {
+        System.out.println("ultimo");
+        MyLinkedList instance = new MyLinkedList();
+        instance.adicionar("a");
+        instance.adicionar("b");
+        instance.adicionar("c");
+        Object expResult = "c";
+        Object result = instance.ultimo();
+        assertEquals(expResult, result);
     }
     
 }

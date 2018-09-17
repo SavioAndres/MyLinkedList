@@ -1,4 +1,4 @@
-package mylinkedlist;
+package interfaces;
 
 /**
  *
