@@ -1,10 +1,9 @@
 package main;
 
-import interfaces.Fila;
-import interfaces.Pilha;
-import interfaces.IMyLinkedList;
+import util.Fila;
+import util.Pilha;
+import util.IMyLinkedList;
 import mylinkedlist.MyLinkedList;
-
 
 /**
  *

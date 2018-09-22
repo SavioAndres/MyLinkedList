@@ -1,9 +1,9 @@
 package mylinkedlist;
 
-import interfaces.Pilha;
-import interfaces.Fila;
+import util.Pilha;
+import util.Fila;
 import java.util.Iterator;
-import interfaces.IMyLinkedList;
+import util.IMyLinkedList;
 
 /**
  *
